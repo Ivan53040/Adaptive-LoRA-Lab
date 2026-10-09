@@ -3,6 +3,7 @@
   "scope": "Curated report snapshot, not the complete raw research archive",
   "transforms": [
     "Absolute workstation paths in JSON made relative or redacted",
+    "Frozen file manifest uses portable forward-slash paths",
     "Saved UI state exported in report-only mode; no generation"
   ],
   "artifacts": [
@@ -117,13 +118,13 @@
     "coding/expansion_data.py": "060b4c6f7b48ec805c9e0402a2c046b28672ee72242713070b5b46337009d438",
     "coding/data.py": "1da99f7487a14280093183223a97ace37738bf00bf8441ecf6e1d44e6cf27d79",
     "coding/sandbox.py": "3d52d90e54bbec84d698320a8a9a720dcb0bd0f8bffe7fd299f991fc83d231d8",
-    "configs\\research_remaining\\coding_seed43.json": "40cfcf635cd036c43fd01f67508ccc11dec95bbbb0cfca5c1e5fa5ac298272ff",
-    "configs\\research_remaining\\coding_seed44.json": "57e05d6b418169655f27206742abb1ce428396c739e7ae58b94204a5aec49c5d",
-    "configs\\research_remaining\\tool_seed43_r16.json": "99d33f4aa8189908b8bdf9b0c7c650307a07fd9369680d9d454101af9ac6a49b",
-    "configs\\research_remaining\\tool_seed43_r32.json": "52bb4d2fc3061514567b516baf9c46addd94f55d8e98ae65464dce951aedb4b6",
-    "configs\\research_remaining\\tool_seed43_r8.json": "62fbb2c9fbc483845ba48c3146d4dacf9b539dc27b94632ab64e9985fb9bc886",
-    "configs\\research_remaining\\tool_seed44_r16.json": "3aff1ae64011c492633231de6e0c8e095800ce1877ccf36f2a2857c05570080a",
-    "configs\\research_remaining\\tool_seed44_r32.json": "5d2468d9c96532678926bb6aa13899e2637b0b8278f95b00621fe7cf05526ae1",
-    "configs\\research_remaining\\tool_seed44_r8.json": "ff257e038a47b7d6b6cbe755dbd281a492d4fa96d6d8a89f5305b2af7921df06"
+    "configs/research_remaining/coding_seed43.json": "40cfcf635cd036c43fd01f67508ccc11dec95bbbb0cfca5c1e5fa5ac298272ff",
+    "configs/research_remaining/coding_seed44.json": "57e05d6b418169655f27206742abb1ce428396c739e7ae58b94204a5aec49c5d",
+    "configs/research_remaining/tool_seed43_r16.json": "99d33f4aa8189908b8bdf9b0c7c650307a07fd9369680d9d454101af9ac6a49b",
+    "configs/research_remaining/tool_seed43_r32.json": "52bb4d2fc3061514567b516baf9c46addd94f55d8e98ae65464dce951aedb4b6",
+    "configs/research_remaining/tool_seed43_r8.json": "62fbb2c9fbc483845ba48c3146d4dacf9b539dc27b94632ab64e9985fb9bc886",
+    "configs/research_remaining/tool_seed44_r16.json": "3aff1ae64011c492633231de6e0c8e095800ce1877ccf36f2a2857c05570080a",
+    "configs/research_remaining/tool_seed44_r32.json": "5d2468d9c96532678926bb6aa13899e2637b0b8278f95b00621fe7cf05526ae1",
+    "configs/research_remaining/tool_seed44_r8.json": "ff257e038a47b7d6b6cbe755dbd281a492d4fa96d6d8a89f5305b2af7921df06"
   }
 }

@@ -31,6 +31,7 @@ def main():
         require(digest(path) == artifact['published_sha256'], f'Published artifact changed: {path.name}')
         require(path.stat().st_size < 100 * 1024**2, f'File exceeds GitHub regular-file limit: {path.name}')
     for name, expected in manifest['frozen_sources_and_configs'].items():
+        require('\\' not in name, f'Non-portable path in public manifest: {name}')
         require(digest(ROOT / name) == expected, f'Frozen research file changed: {name}')
     print(f'PASS: {len(manifest["artifacts"])} published artifacts and {len(manifest["frozen_sources_and_configs"])} frozen fingerprints.')
 

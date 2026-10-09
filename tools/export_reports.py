@@ -72,12 +72,14 @@ def main():
                         'source': 'Derived through the preserved ExpandedDemo report reader',
                         'published_sha256': digest(dst)})
     protocol = json.loads((ROOT / 'outputs/gpu-remaining-20261007/study_protocol.json').read_text())
-    frozen = {**protocol['sources'], **protocol['configs']}
+    frozen = {name.replace('\\', '/'): value
+              for name, value in {**protocol['sources'], **protocol['configs']}.items()}
     for name, expected in frozen.items():
         if digest(ROOT / name) != expected:
             raise SystemExit('Frozen source/config changed: ' + name)
     manifest = {'exported_on': '2026-10-09', 'scope': 'Curated report snapshot, not the complete raw research archive',
                 'transforms': ['Absolute workstation paths in JSON made relative or redacted',
+                               'Frozen file manifest uses portable forward-slash paths',
                                'Saved UI state exported in report-only mode; no generation'],
                 'artifacts': records, 'frozen_sources_and_configs': frozen}
     (ROOT / 'reports/manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')

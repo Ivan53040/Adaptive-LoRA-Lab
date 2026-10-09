@@ -1,0 +1,129 @@
+{
+  "exported_on": "2026-10-09",
+  "scope": "Curated report snapshot, not the complete raw research archive",
+  "transforms": [
+    "Absolute workstation paths in JSON made relative or redacted",
+    "Saved UI state exported in report-only mode; no generation"
+  ],
+  "artifacts": [
+    {
+      "path": "reports/final-summary.md",
+      "source": "outputs/gpu-remaining-20261007/final-summary.md",
+      "source_sha256": "ced97c160267f615d72ad394ab42330283bd9147672f734b6337ad95ec175065",
+      "published_sha256": "ced97c160267f615d72ad394ab42330283bd9147672f734b6337ad95ec175065"
+    },
+    {
+      "path": "reports/final-summary.json",
+      "source": "outputs/gpu-remaining-20261007/final-summary.json",
+      "source_sha256": "3f31c2b14c7a522a5ee48047d34170a16d36c0566330309bda6cacabda55a39d",
+      "published_sha256": "6986b2d508d811814efd612967e3fab25b4be054838b6a9b07f9605d252c8e12"
+    },
+    {
+      "path": "reports/tool-data-size.md",
+      "source": "outputs/data-size-r8/comparison.md",
+      "source_sha256": "63e55e754f0304536f87868ddb2b2f3b2e46ea58dfbf04cc397b3e89f5efe806",
+      "published_sha256": "63e55e754f0304536f87868ddb2b2f3b2e46ea58dfbf04cc397b3e89f5efe806"
+    },
+    {
+      "path": "reports/tool-data-size.json",
+      "source": "outputs/data-size-r8/comparison.json",
+      "source_sha256": "10e21d8fe905125f30031213896fa4c7c7714139d05fe057433f66e7389004de",
+      "published_sha256": "799499698187c0e2f67d2a4d1ddc2afe6d031674b1bcb74128e80c3a60be0a4d"
+    },
+    {
+      "path": "reports/tool-test-summary.json",
+      "source": "outputs/data-size-r8/3k/evaluation/test-summary.json",
+      "source_sha256": "6356badc75f4bd6cc8cf827a9bae9f5eaeb9ad07e6233766191d2373905d3172",
+      "published_sha256": "f042da895985176f1df994ca6acc203b6a8983b46e5309e7e883b3e9ee46be62"
+    },
+    {
+      "path": "reports/coding-expansion.md",
+      "source": "outputs/coding-expansion-3k/comparison.md",
+      "source_sha256": "f8723b7a7c31d1d57ec77d59fd9d107799f01f77ef999d07554804a22fbcd6af",
+      "published_sha256": "f8723b7a7c31d1d57ec77d59fd9d107799f01f77ef999d07554804a22fbcd6af"
+    },
+    {
+      "path": "reports/coding-followup.md",
+      "source": "outputs/coding-followup/comparison.md",
+      "source_sha256": "9b71af2e99ae2e2b1258d225219eb0cb4fbb0f297f24d20b0af928441855fbd8",
+      "published_sha256": "9b71af2e99ae2e2b1258d225219eb0cb4fbb0f297f24d20b0af928441855fbd8"
+    },
+    {
+      "path": "reports/router-integration.md",
+      "source": "outputs/router-expanded-v1/comparison.md",
+      "source_sha256": "f0db65960b52f28634cc3b235e4f7f0c0f0247a82e66bd63e13e3770087fe629",
+      "published_sha256": "f0db65960b52f28634cc3b235e4f7f0c0f0247a82e66bd63e13e3770087fe629"
+    },
+    {
+      "path": "reports/router-integration.json",
+      "source": "outputs/router-expanded-v1/comparison.json",
+      "source_sha256": "8e730b3d87b30f1268af03bcd34c5219dcde5518a767357253aea6312d2023a8",
+      "published_sha256": "3005f6b607eb11e11624c0f7168f7e32d4ba49d1124a647124156e623b5bf37a"
+    },
+    {
+      "path": "media/adaptive-lora-lab-star-en-male.mp4",
+      "source": "outputs/portfolio-video/Adaptive-LoRA-Lab-STAR-English-Male.mp4",
+      "source_sha256": "d99ee8f7303d7bb9e129c5bb1538f48cad873b33df06eb63f4eabc0615b5f231",
+      "published_sha256": "d99ee8f7303d7bb9e129c5bb1538f48cad873b33df06eb63f4eabc0615b5f231"
+    },
+    {
+      "path": "media/adaptive-lora-lab-en.srt",
+      "source": "outputs/portfolio-video/Adaptive-LoRA-Lab-English-Male.srt",
+      "source_sha256": "6b3e4595ef46cd01c49abf5d048661d6260113c48de419e45c4fa7dcf0307f14",
+      "published_sha256": "6b3e4595ef46cd01c49abf5d048661d6260113c48de419e45c4fa7dcf0307f14"
+    },
+    {
+      "path": "media/narration-en.txt",
+      "source": "outputs/portfolio-video/Narration-English-Male.txt",
+      "source_sha256": "e70b51d63bbf9592c5e8ff5afe87a143ce2900d5952a2d02772df2a08b6ecefb",
+      "published_sha256": "e70b51d63bbf9592c5e8ff5afe87a143ce2900d5952a2d02772df2a08b6ecefb"
+    },
+    {
+      "path": "media/cover.jpg",
+      "source": "outputs/portfolio-video/Adaptive-LoRA-Lab-Poster.jpg",
+      "source_sha256": "3f5e05a15522e8bd7063b45ba70a8539c5f4614d54997dd15f2d7b9908b43845",
+      "published_sha256": "3f5e05a15522e8bd7063b45ba70a8539c5f4614d54997dd15f2d7b9908b43845"
+    },
+    {
+      "path": "media/shared-base-demo.png",
+      "source": "outputs/expanded-demo-preview.png",
+      "source_sha256": "5fe4b4ee649cf8f999c48fd7045daf11ee39b31c1fc0a6bd7738ddcfd01f2d9b",
+      "published_sha256": "5fe4b4ee649cf8f999c48fd7045daf11ee39b31c1fc0a6bd7738ddcfd01f2d9b"
+    },
+    {
+      "path": "reports/demo/status.json",
+      "source": "Derived through the preserved ExpandedDemo report reader",
+      "published_sha256": "a93c278e9c41fa3d98ceddae8c2fc1b9c157c6388f8931ce88f13561837ff22a"
+    },
+    {
+      "path": "reports/demo/tool-review.json",
+      "source": "Derived through the preserved ExpandedDemo report reader",
+      "published_sha256": "d5b22665cd439ea5795a09a47d3947aca19a46316b6fb110388e91b320e6c4b5"
+    },
+    {
+      "path": "reports/demo/coding-review.json",
+      "source": "Derived through the preserved ExpandedDemo report reader",
+      "published_sha256": "3c80b0c2f932670578f9b70b3bf2cb6e8541458fa54b640ef64c8f6d6eb96a27"
+    }
+  ],
+  "frozen_sources_and_configs": {
+    "experiments/gpu_remaining.py": "aeccb1ebe4d4dabab0b1b79aeecad46ce6fa14af8f85790185ec3d50313f675b",
+    "training/train_coding_expansion.py": "a8262fb5783a2386e5013ac4c70f5e565656d88442e1dc2c3969f9cfc20b3b3d",
+    "training/train_fresh_protocol.py": "92c6dd273cf0d6de28946f1a577b39a0e7574ba4e6cd0a80b4f795785f84b74e",
+    "evaluation/coding_benchmark.py": "6110db2a78b7d17a0a1e540076ac96b3198cacc2061ac2284923c8f19cffb7a0",
+    "evaluation/coding_expansion.py": "2a095b8f15ef1af74c7d8e4743698d2c92d24826f377d636de1a105af6aeb695",
+    "evaluation/rank_validation.py": "a11b93a3edac7be10b6c2624ebaaae3dbb8ba49be5820fc5f67713ef3ecacc89",
+    "evaluation/audit_remaining_coding.py": "317b1b3792349dccba7cb895f23f720e559726634ed843b383d79cb15f1a92dd",
+    "coding/expansion_data.py": "060b4c6f7b48ec805c9e0402a2c046b28672ee72242713070b5b46337009d438",
+    "coding/data.py": "1da99f7487a14280093183223a97ace37738bf00bf8441ecf6e1d44e6cf27d79",
+    "coding/sandbox.py": "3d52d90e54bbec84d698320a8a9a720dcb0bd0f8bffe7fd299f991fc83d231d8",
+    "configs\\research_remaining\\coding_seed43.json": "40cfcf635cd036c43fd01f67508ccc11dec95bbbb0cfca5c1e5fa5ac298272ff",
+    "configs\\research_remaining\\coding_seed44.json": "57e05d6b418169655f27206742abb1ce428396c739e7ae58b94204a5aec49c5d",
+    "configs\\research_remaining\\tool_seed43_r16.json": "99d33f4aa8189908b8bdf9b0c7c650307a07fd9369680d9d454101af9ac6a49b",
+    "configs\\research_remaining\\tool_seed43_r32.json": "52bb4d2fc3061514567b516baf9c46addd94f55d8e98ae65464dce951aedb4b6",
+    "configs\\research_remaining\\tool_seed43_r8.json": "62fbb2c9fbc483845ba48c3146d4dacf9b539dc27b94632ab64e9985fb9bc886",
+    "configs\\research_remaining\\tool_seed44_r16.json": "3aff1ae64011c492633231de6e0c8e095800ce1877ccf36f2a2857c05570080a",
+    "configs\\research_remaining\\tool_seed44_r32.json": "5d2468d9c96532678926bb6aa13899e2637b0b8278f95b00621fe7cf05526ae1",
+    "configs\\research_remaining\\tool_seed44_r8.json": "ff257e038a47b7d6b6cbe755dbd281a492d4fa96d6d8a89f5305b2af7921df06"
+  }
+}

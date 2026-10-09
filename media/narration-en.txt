@@ -1,0 +1,38 @@
+ADAPTIVE LORA LAB — STAR PORTFOLIO FILM
+English narration | AI voice: Kokoro am_michael | Original instrumental score
+
+00:00:00,000  SITUATION — One model. More possibilities.
+Can one language model learn several specialist skills without retraining all of its weights? This is Adaptive LoRA Lab, my local machine learning research project.
+
+00:00:13,109  SITUATION — Fluent text is only the beginning.
+A pretrained model is a useful starting point, but reliable tool calls and working code need more than fluent text. The challenge was to improve specific tasks within the limits of a single laptop GPU.
+
+00:00:28,002  TASK — Small adapters. Clear evidence.
+My goal was to build small, interchangeable adapters around one frozen Qwen3 eight-billion-parameter base model. Success meant measurable gains, controlled comparisons, and a working demo with evidence behind every result.
+
+00:00:44,746  ACTION — Prepare. Freeze. Train. Record.
+I started with reproducible data preparation: normalize tool schemas, preserve official test sets, and freeze training and validation splits. Then I trained four-bit QLoRA adapters, saving configurations, checkpoints, and raw predictions.
+
+00:01:02,416  ACTION — A failed experiment. A better protocol.
+Early experiments exposed a useful failure: low training loss, but invalid tool calls. I investigated output tokens and supervision, then repaired completion training through the end token and jointly updated adapter layers, including the output head.
+
+00:01:20,046  ACTION — Change one question at a time.
+Next came controlled studies of adapter rank, training data size, and coding target layers. Validation selected rank eight and three thousand tool training examples before the final test. Repeat seeds checked how much results varied.
+
+00:01:36,817  ACTION — From experiments to a usable demo.
+I connected tool and coding adapters to one shared base, with manual switching and a lightweight rule-based router. A bilingual interface exposes the full fourteen-stage pipeline, saved errors, and isolated mock-tool or Docker checks.
+
+00:01:54,010  RESULT — Reliable structure. Measured accuracy.
+The selected tool adapter achieved 92.92 percent exact calls across 961 official cases. All cases passed format and mock execution checks. Sixty-eight exact-match errors remained: executable does not always mean correct.
+
+00:02:13,292  RESULT — Keep the failures. Measure the progress.
+The first coding pilot did not beat the base on HumanEval, and I kept that negative result. The expanded adapter later passed 111 of 164 tasks, compared with 98 for the base: thirteen additional passes.
+
+00:02:30,756  RESULT — Repeat the training. Replay the evidence.
+On 465 eligible MBPP tasks, three coding seeds averaged 53.62 percent. Independent CPU replay verified saved outputs. These results describe specific benchmarks and training variation; they do not establish universal superiority.
+
+00:02:51,594  RESULT — Specialists, connected. Decisions, visible.
+The router matched all twenty-seven route contracts. In a small integration pilot, automated routing passed 22 of 24 checks, versus 14 using only the base. Each total includes five clarification cases.
+
+00:03:07,950  RESULT — From a model to evidence you can inspect.
+The result is a completed local research and demo project: reproducible experiments, specialist adaptation, transparent routing, and auditable results. For me, the key achievement is connecting model development with rigorous evaluation and a usable product.

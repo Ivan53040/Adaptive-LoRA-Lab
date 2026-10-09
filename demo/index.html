@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adaptive LoRA Lab</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+<header><div class="brand"><span class="mark">L</span><div><div class="brand-line"><strong>Adaptive LoRA Lab</strong><div class="language-switch" role="group" aria-label="Interface language" data-i18n-aria="interfaceLanguage"><button type="button" data-language="en" class="active" aria-pressed="true" aria-label="Switch to English">EN</button><button type="button" data-language="zh" aria-pressed="false" aria-label="切換繁體中文">中文</button></div></div><small data-i18n="brandSub">LOCAL MODEL · TOOL CALLING</small></div></div><div id="status" class="status"><span class="dot"></span><span data-i18n="loading">Loading model</span></div></header>
+<section class="intro"><div><p class="eyebrow" data-i18n="eyebrow">FROM TRAINING TO EXECUTION</p><h1><span data-i18n="hero1">See your LoRA</span><br><span data-i18n="hero2">put tools to work.</span></h1><p class="subtitle" data-i18n="subtitle">Explore tool selection, argument validation, and simulated execution.</p></div><div class="intro-note"><span class="pill" data-i18n="mockMode">MOCK MODE</span><p data-i18n="mockNote">Actions only change this demo's temporary state. Each request is independent; Base and LoRA have separate mock worlds.</p></div></section>
+<section class="metrics">
+<div class="metric"><small data-i18n="formatLabel">Valid format · 961 cases</small><strong id="formatMetric">—</strong><span data-i18n="formatHint">Required tool_call protocol</span></div>
+<div class="metric"><small data-i18n="toolsLabel">Correct tool selection</small><strong id="toolMetric">—</strong><span data-i18n="toolsHint">Includes tool-call counts</span></div>
+<div class="metric"><small data-i18n="exactLabel">Exact tools + arguments</small><strong id="exactMetric">—</strong><span data-i18n="exactHint">Strict reference comparison</span></div>
+<div class="metric"><small data-i18n="mockLabel">Mock execution success</small><strong id="mockMetric">—</strong><span data-i18n="mockHint">Executable does not mean intent-correct</span></div>
+</section>
+<nav class="tabs" aria-label="Demo sections" data-i18n-aria="demoSections"><button class="active" data-tab="play" data-i18n="playTab">Try the model</button><button data-tab="auto" data-i18n="routeTab">Automatic routing</button><button data-tab="coding" data-i18n="codingTab">Coding comparison</button><button data-tab="pipeline" data-i18n="pipelineTab">Project pipeline</button><button id="reviewTab" data-tab="review">Review differences</button><button data-tab="tools" data-i18n="toolsTab">Tool contracts</button></nav>
+<section id="play" class="tab-panel">
+<div class="workspace">
+<section class="card composer">
+<div class="section-title"><h2 data-i18n="requestTitle">Your request</h2><span class="muted" data-i18n="datasetLanguage">English training dataset</span></div>
+<div class="mode"><label><input type="radio" name="mode" value="lora" checked><span>Tool-use LoRA</span></label><label><input type="radio" name="mode" value="base"><span>Base</span></label><label><input type="radio" name="mode" value="both"><span data-i18n="both">Compare both</span></label></div>
+<textarea id="prompt" aria-label="Your request" data-i18n-aria="requestTitle" data-i18n-placeholder="promptPlaceholder" placeholder="Example: Please turn on the flashlight." maxlength="4000">Please turn on the flashlight.</textarea>
+<div class="examples"><button data-example="flash" data-i18n="flash">Flashlight</button><button data-example="contact" data-i18n="contacts">Contacts</button><button data-example="calendar" data-i18n="calendar">Calendar</button><button data-example="email" data-i18n="email">Email</button><button data-example="multi" data-i18n="multi">Multiple tools</button></div>
+<details class="options"><summary data-i18n="options">Reference time & output settings</summary><div class="fields"><label><span data-i18n="referenceTime">Reference time · Brisbane</span><input id="referenceTime" type="datetime-local" step="1"></label><label><span data-i18n="maxTokens">Maximum output tokens</span><select id="maxTokens"><option>64</option><option>128</option><option selected>256</option><option>512</option></select></label></div></details>
+<div class="actions"><button id="run" class="primary" disabled><span data-i18n="run">Generate & simulate</span> <span class="arrow">↗</span></button><span id="timer" class="muted"></span></div>
+<p id="notice" class="notice" data-i18n="initialNotice">The model stays in memory. Try more requests once loading finishes.</p>
+</section>
+<section class="card world">
+<div class="section-title"><h2 data-i18n="worldTitle">Mock world</h2><button id="reset" class="text-button" data-i18n="reset">Reset</button></div>
+<div class="world-selector"><button class="active" data-world="lora">LoRA</button><button data-world="base">Base</button></div>
+<div class="world-flags"><div><span id="flashlight" class="lamp">●</span><span><span data-i18n="flash">Flashlight</span> <strong id="flashText">OFF</strong></span></div><div><span class="wifi-icon">⌁</span><span><span data-i18n="wifi">Wi-Fi settings</span> <strong id="wifiText">CLOSED</strong></span></div></div>
+<div class="world-counts"><div><strong id="eventsCount">0</strong><small data-i18n="calendar">Calendar</small></div><div><strong id="contactsCount">0</strong><small data-i18n="contacts">Contacts</small></div><div><strong id="mailCount">0</strong><small data-i18n="mockEmail">Mock email</small></div></div>
+<div id="stateList" class="state-list"><p class="empty" data-i18n="worldEmpty">Tool results will appear here.</p></div>
+</section>
+</div>
+<section class="card results"><div class="section-title"><h2 data-i18n="resultsTitle">Request → tools → validation → mock results</h2><span id="resultCount" class="muted"></span></div><div id="responses"><div class="empty result-empty" data-i18n="resultsEmpty">Start with a request, then choose Generate & simulate.</div></div></section>
+</section>
+<section id="auto" class="tab-panel hidden">
+<section class="card composer"><div class="section-title"><h2 data-i18n="routeTitle">Automatic routing · rules v1</h2><span class="pill" data-i18n="sharedBase">ONE SHARED BASE</span></div>
+<p class="muted" data-i18n="routeScope">English supported tool commands and Python function prefixes. Mixed, negated or unsupported requests clarify before generation.</p>
+<textarea id="routePrompt" maxlength="4000" aria-label="Routing request" data-i18n-aria="routeRequest" spellcheck="false">Please turn on the flashlight.</textarea>
+<div class="examples"><button data-route-example="tool" data-i18n="routeExampleTools">Tools</button><button data-route-example="python" data-i18n="routeExamplePython">Python</button><button data-route-example="general" data-i18n="routeExampleGeneral">General</button><button data-route-example="clarify" data-i18n="routeExampleClarify">Mixed request</button></div>
+<p class="pipeline-note" data-i18n="routePolicyNote">Python defaults to Base because the Coding pilot has no demonstrated held-out gain. Explicitly opt in to try Coding.</p>
+<label class="code-test-toggle"><input id="routeExperimental" type="checkbox"><span data-i18n="routeExperimental">Try experimental Coding for Python prefixes</span></label>
+<label class="code-options"><span data-i18n="codingVariant">Experimental Coding adapter</span><select id="routeVariant"><option value="pilot" data-i18n="codingOriginal">Original Coding · 339 train</option><option value="expanded" data-i18n="codingExpanded">Expanded Coding · 3k train</option></select></label>
+<details class="options"><summary data-i18n="options">Reference time & output settings</summary><label><span data-i18n="referenceTime">Reference time · Brisbane</span><input id="routeTime" type="datetime-local" step="1"></label><label class="code-test-toggle"><input id="routeChecks" type="checkbox"><span data-i18n="codeRunChecks">Run my assertions in Docker after generation</span></label><textarea id="routeAssertions" maxlength="4000" aria-label="Optional Python assertions" data-i18n-aria="codeAssertions" spellcheck="false">assert square(3)==9
+assert square(-4)==16</textarea></details>
+<div class="actions"><button id="routePreview" class="text-button" data-i18n="routePreview">Preview route only</button><button id="routeRun" class="primary" disabled data-i18n="routeGenerate">Route & generate</button></div><p id="routeNotice" class="notice" data-i18n="routeInitial">Routing is transparent; previews and clarification do not run a model.</p></section>
+<section class="card results"><h2 data-i18n="routeOutputTitle">Selected domain → adapter → result</h2><div id="routeOutput"><p class="empty" data-i18n="routeOutputEmpty">Preview or generate to inspect the route decision.</p></div></section>
+</section>
+<section id="coding" class="tab-panel hidden">
+<section class="card"><div class="section-title"><div><h2 data-i18n="codingTitle">Coding pilot · experimental adapter</h2><p class="muted" data-i18n="codingLimit">The Coding pilot did not outperform Base on held-out HumanEval. Compare outputs without changing the saved benchmark.</p></div><span class="pill" data-i18n="sharedBase">ONE SHARED BASE</span></div>
+<div class="table-scroll"><table class="pipeline-table"><caption data-i18n="codeBenchmarkCaption">HumanEval · 164 tasks · one greedy candidate per task</caption><thead><tr><th data-i18n="codeMode">Mode</th><th data-i18n="codePassAt1">Passed tests</th><th data-i18n="pythonSyntax">Python syntax</th></tr></thead><tbody id="codeMetrics"></tbody></table></div></section>
+<section class="card code-composer"><div class="section-title"><h2 data-i18n="codeFunctionPrefix">Python function to complete</h2><span class="muted" data-i18n="codeManual">Manual adapter selection · no router</span></div>
+<label class="code-options"><span data-i18n="codingVariant">Experimental Coding adapter</span><select id="codeVariant"><option value="pilot" data-i18n="codingOriginal">Original Coding · 339 train</option><option value="expanded" data-i18n="codingExpanded">Expanded Coding · 3k train</option></select></label><p class="muted" data-i18n="codingVariantNote">The HumanEval table and saved review above refer to the original adapter. The expanded adapter's MBPP results are separate in the pipeline.</p>
+<div class="mode"><label><input type="radio" name="codeMode" value="coding" checked><span data-i18n="codingExperimental">Coding LoRA · experimental</span></label><label><input type="radio" name="codeMode" value="base"><span>Base</span></label><label><input type="radio" name="codeMode" value="both"><span data-i18n="both">Compare both</span></label></div>
+<textarea id="codePrefix" class="code-input" maxlength="4000" aria-label="Python function to complete" data-i18n-aria="codeFunctionPrefix" spellcheck="false">def is_even(n):
+    """Return True when n is even, otherwise False."""
+</textarea><p class="muted" data-i18n="codePrefixHelp">Supply a function signature and finished docstring; the model generates its body. Inputs stay unchanged when switching interface language.</p>
+<div class="code-options"><label><span data-i18n="maxTokens">Maximum output tokens</span><select id="codeTokens"><option>128</option><option>256</option><option selected>512</option></select></label><label class="code-test-toggle"><input id="codeTestEnable" type="checkbox"><span data-i18n="codeRunChecks">Run my assertions in Docker after generation</span></label></div>
+<textarea id="codeTests" class="code-input" maxlength="4000" aria-label="Optional Python assertions" data-i18n-aria="codeAssertions" spellcheck="false">assert is_even(2) is True
+assert is_even(3) is False
+assert is_even(0) is True</textarea><p class="muted" data-i18n="codeSandboxNote">Checks run only when selected, in isolated Python containers with no network or host mounts. Passing these assertions does not prove correctness for every input.</p>
+<div class="actions"><button id="codeRun" class="primary" disabled data-i18n="codeGenerate">Generate completion</button><span id="codeTimer" class="muted"></span></div><p id="codeNotice" class="notice" data-i18n="codeInitial">Tool and Coding adapters share one Base; requests switch adapters without reloading its weights.</p></section>
+<section class="card results"><h2 data-i18n="codeOutputTitle">Generated Python · Base / Coding</h2><div id="codeResponses"><p class="empty" data-i18n="codeOutputEmpty">Generate a completion to inspect the full program and optional test results.</p></div></section>
+<section class="card"><div class="section-title"><div><h2 data-i18n="codeSavedReview">Saved HumanEval case review</h2><p class="muted" id="codeReviewCount"></p></div><select id="codeReviewFilter" aria-label="Coding review category" data-i18n-aria="codeReviewCategory"><option value="failures" data-i18n="codeFailures">Coding failures</option><option value="gained" data-i18n="codeGained">Coding passed / Base failed</option><option value="lost" data-i18n="codeLost">Base passed / Coding failed</option><option value="syntax" data-i18n="codeSyntaxFailures">Syntax failures</option><option value="runtime" data-i18n="codeRuntimeFailures">Runtime failures</option><option value="all" data-i18n="codeAllCases">All 164 cases</option></select></div><div id="codeReviewList"></div></section>
+</section>
+<section id="pipeline" class="tab-panel hidden">
+<section class="card pipeline-intro"><div><p class="eyebrow" data-i18n="pipelineEyebrow">THE EXPERIMENT, END TO END</p><h2 data-i18n="pipelineTitle">From a Base model to a tested tool adapter</h2><p class="muted" data-i18n="pipelineSubtitle">What we built, what failed, how we fixed it, and what the evidence shows.</p></div><span class="pill" data-i18n="milestone">TOOL-USE STUDY COMPLETE</span></section>
+<nav id="pipelineMap" class="pipeline-map" aria-label="Pipeline overview" data-i18n-aria="pipelineOverview"></nav>
+<div id="pipelineStages" class="pipeline-stages"></div>
+<section class="card pipeline-artifacts"><h2 data-i18n="artifactTitle">Evidence and reproducibility</h2><p class="muted" data-i18n="artifactNote">Saved locally in the project. These are completed experiment artifacts, not a live training dashboard.</p><div id="pipelineArtifacts"></div></section>
+</section>
+<section id="review" class="tab-panel hidden">
+<section class="card"><div class="section-title"><div><h2 data-i18n="reviewTitle">Review differences</h2><p class="muted" data-i18n="reviewSubtitle">Inspect saved evaluation outputs without generating them again.</p></div><select id="reviewFilter" aria-label="Review category" data-i18n-aria="reviewCategory"><option value="all" data-i18n="filterAll">All non-exact cases</option><option value="runtime" data-i18n="filterRuntime">Mock rejected</option><option value="invalid_format" data-i18n="filterFormat">Invalid format</option><option value="datetime difference" data-i18n="filterDate">Date & time</option><option value="only case/spacing/punctuation" data-i18n="filterSurface">Case / punctuation / spacing</option></select></div><div id="reviewList"></div></section>
+</section>
+<section id="tools" class="tab-panel hidden"><section class="card"><div class="section-title"><h2 data-i18n="toolsTitle">Seven available tools</h2><span class="muted" data-i18n="toolsRule">Validate the whole batch before execution</span></div><p class="muted" data-i18n="toolsDescription">The mock contract rejects unknown fields and checks required values, calendar timestamps, and basic email syntax. Maps only record the query.</p><div id="toolsList" class="tools-grid"></div></section></section>
+<footer><span id="modelLabel">Qwen3-8B-Base · NF4 · LoRA</span><span data-i18n="footer">LOCAL INFERENCE / IN-MEMORY MOCK TOOLS</span></footer>
+</div>
+<script src="/i18n.js"></script><script src="/pipeline.js"></script><script src="/app.js"></script><script src="/coding.js"></script>
+</body></html>

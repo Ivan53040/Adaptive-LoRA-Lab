@@ -1,0 +1,2 @@
+# Lightweight CPU checks and optional report snapshot export.
+jsonschema==4.26.0

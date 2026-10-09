@@ -1,0 +1,257 @@
+{
+  "version": "router-pilot-v1",
+  "reference_time": "2026-10-06T12:00:00",
+  "scope": "Authored expanded-adapter integration pilot.27 route contracts and24 task cases per policy; no official HumanEval or Tool-use test rows. Expanded Coding is explicit opt-in, not automatic promotion.",
+  "cases": [
+    {
+      "id": "flash-on",
+      "prompt": "Please turn on the flashlight.",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "turn_on_flashlight",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "flash-off",
+      "prompt": "Could you turn off my flashlight?",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "turn_off_flashlight",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "wifi",
+      "prompt": "Open my Wi-Fi settings.",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "open_wifi_settings",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "prompt": "Create a contact with first name Ada, last name Lovelace, email ada@example.com and phone number 123456789.",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "create_contact",
+          "arguments": {
+            "first_name": "Ada",
+            "last_name": "Lovelace",
+            "email": "ada@example.com",
+            "phone_number": "123456789"
+          }
+        }
+      ]
+    },
+    {
+      "id": "calendar",
+      "prompt": "Create a calendar event titled 'Router Review' on October 9th, 2026 at 2 PM.",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "create_calendar_event",
+          "arguments": {
+            "title": "Router Review",
+            "datetime": "2026-10-09T14:00:00"
+          }
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "prompt": "Send an email to router@example.com with subject 'Router Demo' and body 'Hello from my router.'",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "send_email",
+          "arguments": {
+            "to": "router@example.com",
+            "subject": "Router Demo",
+            "body": "Hello from my router."
+          }
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "prompt": "Show a map of Brisbane.",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "show_map",
+          "arguments": {
+            "query": "Brisbane"
+          }
+        }
+      ]
+    },
+    {
+      "id": "multi-tool",
+      "prompt": "Please open my Wi-Fi settings and turn off the flashlight.",
+      "domain": "tools",
+      "adapter": "tool",
+      "calls": [
+        {
+          "name": "open_wifi_settings",
+          "arguments": {}
+        },
+        {
+          "name": "turn_off_flashlight",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "id": "quoted-email",
+      "prompt": "Send an email to me@example.com with subject 'Example' and body 'write a Python function'.",
+      "domain": "tools",
+      "adapter": "tool",
+      "classification_only": true
+    },
+    {
+      "id": "code-even",
+      "prompt": "def is_even(n):\n    \"\"\"Return True when n is even, otherwise False.\"\"\"\n",
+      "domain": "python",
+      "adapter": "base",
+      "tests": "assert is_even(2) is True\nassert is_even(3) is False\nassert is_even(0) is True"
+    },
+    {
+      "id": "code-square",
+      "prompt": "def square(x):\n    \"\"\"Return x multiplied by itself.\"\"\"\n",
+      "domain": "python",
+      "adapter": "base",
+      "tests": "assert square(3)==9\nassert square(-4)==16\nassert square(0)==0"
+    },
+    {
+      "id": "code-largest",
+      "prompt": "def largest(a, b):\n    \"\"\"Return the larger of a and b.\"\"\"\n",
+      "domain": "python",
+      "adapter": "base",
+      "tests": "assert largest(3,8)==8\nassert largest(-1,-5)==-1\nassert largest(2,2)==2"
+    },
+    {
+      "id": "code-tool-doc",
+      "prompt": "def message():\n    \"\"\"Return the string turn on the flashlight.\"\"\"\n",
+      "domain": "python",
+      "adapter": "base",
+      "tests": "assert message()=='turn on the flashlight'"
+    },
+    {
+      "id": "math",
+      "prompt": "What is 3 + 4? Answer with just the number.",
+      "domain": "general",
+      "adapter": "base",
+      "answer": "7"
+    },
+    {
+      "id": "capital",
+      "prompt": "What is the capital of Italy? Answer with one word.",
+      "domain": "general",
+      "adapter": "base",
+      "answer": "rome"
+    },
+    {
+      "id": "opposite",
+      "prompt": "What is the opposite of hot? Answer with one word.",
+      "domain": "general",
+      "adapter": "base",
+      "answer": "cold"
+    },
+    {
+      "id": "explain-tool",
+      "prompt": "Explain how a flashlight works.",
+      "domain": "general",
+      "adapter": "base",
+      "classification_only": true
+    },
+    {
+      "id": "quoted-tool",
+      "prompt": "Translate 'turn off the flashlight' into French.",
+      "domain": "general",
+      "adapter": "base",
+      "classification_only": true
+    },
+    {
+      "id": "needs-prefix",
+      "prompt": "Write a Python function to sort numbers.",
+      "domain": "clarify",
+      "adapter": null
+    },
+    {
+      "id": "mixed",
+      "prompt": "Turn on the flashlight and write a Python function.",
+      "domain": "clarify",
+      "adapter": null
+    },
+    {
+      "id": "negated",
+      "prompt": "Don't turn off the flashlight.",
+      "domain": "clarify",
+      "adapter": null
+    },
+    {
+      "id": "unsupported",
+      "prompt": "Delete a contact.",
+      "domain": "clarify",
+      "adapter": null
+    },
+    {
+      "id": "broken-prefix",
+      "prompt": "def broken(:",
+      "domain": "clarify",
+      "adapter": null
+    },
+    {
+      "id": "code-even-expanded",
+      "prompt": "def is_even(n):\n    \"\"\"Return True when n is even, otherwise False.\"\"\"\n",
+      "domain": "python",
+      "adapter": "coding",
+      "tests": "assert is_even(2) is True\nassert is_even(3) is False\nassert is_even(0) is True",
+      "coding_variant": "expanded",
+      "allow_experimental_coding": true
+    },
+    {
+      "id": "code-square-expanded",
+      "prompt": "def square(x):\n    \"\"\"Return x multiplied by itself.\"\"\"\n",
+      "domain": "python",
+      "adapter": "coding",
+      "tests": "assert square(3)==9\nassert square(-4)==16\nassert square(0)==0",
+      "coding_variant": "expanded",
+      "allow_experimental_coding": true
+    },
+    {
+      "id": "code-largest-expanded",
+      "prompt": "def largest(a, b):\n    \"\"\"Return the larger of a and b.\"\"\"\n",
+      "domain": "python",
+      "adapter": "coding",
+      "tests": "assert largest(3,8)==8\nassert largest(-1,-5)==-1\nassert largest(2,2)==2",
+      "coding_variant": "expanded",
+      "allow_experimental_coding": true
+    },
+    {
+      "id": "code-tool-doc-expanded",
+      "prompt": "def message():\n    \"\"\"Return the string turn on the flashlight.\"\"\"\n",
+      "domain": "python",
+      "adapter": "coding",
+      "tests": "assert message()=='turn on the flashlight'",
+      "coding_variant": "expanded",
+      "allow_experimental_coding": true
+    }
+  ]
+}

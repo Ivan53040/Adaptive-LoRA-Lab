@@ -1,0 +1,12 @@
+{
+  "source_adapter": "outputs/rank-ablation-1k/r16",
+  "output_dir": "outputs/protocol-repair/resume-smoke/paused",
+  "train_rows": 16,
+  "max_steps": 4,
+  "gradient_accumulation_steps": 1,
+  "head_lr": 0.001,
+  "transformer_lr": 0.0001,
+  "max_length": 2048,
+  "seed": 42,
+  "generation_check_every": 20
+}

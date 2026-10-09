@@ -1,0 +1,203 @@
+1
+00:00:01,150 --> 00:00:04,749
+Can one language model learn several specialist skills
+
+2
+00:00:04,819 --> 00:00:07,052
+without retraining all of its weights?
+
+3
+00:00:07,182 --> 00:00:12,279
+This is Adaptive LoRA Lab, my local machine learning research project.
+
+4
+00:00:13,709 --> 00:00:16,821
+A pretrained model is a useful starting point,
+
+5
+00:00:16,891 --> 00:00:21,343
+but reliable tool calls and working code need more than fluent text.
+
+6
+00:00:21,473 --> 00:00:24,076
+The challenge was to improve specific tasks
+
+7
+00:00:24,146 --> 00:00:27,172
+within the limits of a single laptop GPU.
+
+8
+00:00:28,602 --> 00:00:32,208
+My goal was to build small, interchangeable adapters
+
+9
+00:00:32,278 --> 00:00:36,475
+around one frozen Qwen3 eight-billion-parameter base model.
+
+10
+00:00:36,605 --> 00:00:40,354
+Success meant measurable gains, controlled comparisons,
+
+11
+00:00:40,424 --> 00:00:43,916
+and a working demo with evidence behind every result.
+
+12
+00:00:45,346 --> 00:00:50,189
+I started with reproducible data preparation: normalize tool schemas,
+
+13
+00:00:50,259 --> 00:00:54,817
+preserve official test sets, and freeze training and validation splits.
+
+14
+00:00:54,947 --> 00:00:57,757
+Then I trained four-bit QLoRA adapters,
+
+15
+00:00:57,827 --> 00:01:01,586
+saving configurations, checkpoints, and raw predictions.
+
+16
+00:01:03,016 --> 00:01:05,873
+Early experiments exposed a useful failure:
+
+17
+00:01:05,943 --> 00:01:08,732
+low training loss, but invalid tool calls.
+
+18
+00:01:08,862 --> 00:01:12,017
+I investigated output tokens and supervision,
+
+19
+00:01:12,087 --> 00:01:15,131
+then repaired completion training through the end token
+
+20
+00:01:15,201 --> 00:01:19,216
+and jointly updated adapter layers, including the output head.
+
+21
+00:01:20,646 --> 00:01:23,344
+Next came controlled studies of adapter rank,
+
+22
+00:01:23,414 --> 00:01:26,446
+training data size, and coding target layers.
+
+23
+00:01:26,576 --> 00:01:31,397
+Validation selected rank eight and three thousand tool training examples
+
+24
+00:01:31,467 --> 00:01:35,987
+before the final test. Repeat seeds checked how much results varied.
+
+25
+00:01:37,417 --> 00:01:41,190
+I connected tool and coding adapters to one shared base,
+
+26
+00:01:41,260 --> 00:01:44,756
+with manual switching and a lightweight rule-based router.
+
+27
+00:01:44,886 --> 00:01:49,247
+A bilingual interface exposes the full fourteen-stage pipeline,
+
+28
+00:01:49,317 --> 00:01:53,180
+saved errors, and isolated mock-tool or Docker checks.
+
+29
+00:01:54,610 --> 00:02:00,065
+The selected tool adapter achieved 92.92 percent exact calls
+
+30
+00:02:00,135 --> 00:02:03,192
+across 961 official cases.
+
+31
+00:02:03,322 --> 00:02:06,922
+All cases passed format and mock execution checks.
+
+32
+00:02:07,052 --> 00:02:09,612
+Sixty-eight exact-match errors remained:
+
+33
+00:02:09,682 --> 00:02:12,462
+executable does not always mean correct.
+
+34
+00:02:13,892 --> 00:02:18,047
+The first coding pilot did not beat the base on HumanEval,
+
+35
+00:02:18,117 --> 00:02:20,167
+and I kept that negative result.
+
+36
+00:02:20,297 --> 00:02:25,779
+The expanded adapter later passed 111 of 164 tasks,
+
+37
+00:02:25,849 --> 00:02:29,926
+compared with 98 for the base: thirteen additional passes.
+
+38
+00:02:31,356 --> 00:02:35,460
+On 465 eligible MBPP tasks,
+
+39
+00:02:35,530 --> 00:02:39,364
+three coding seeds averaged 53.62 percent.
+
+40
+00:02:39,494 --> 00:02:43,343
+Independent CPU replay verified saved outputs.
+
+41
+00:02:43,473 --> 00:02:47,548
+These results describe specific benchmarks and training variation;
+
+42
+00:02:47,678 --> 00:02:50,764
+they do not establish universal superiority.
+
+43
+00:02:52,194 --> 00:02:55,187
+The router matched all twenty-seven route contracts.
+
+44
+00:02:55,317 --> 00:03:01,001
+In a small integration pilot, automated routing passed 22 of 24 checks,
+
+45
+00:03:01,071 --> 00:03:03,863
+versus 14 using only the base.
+
+46
+00:03:03,993 --> 00:03:07,120
+Each total includes five clarification cases.
+
+47
+00:03:08,550 --> 00:03:12,432
+The result is a completed local research and demo project:
+
+48
+00:03:12,502 --> 00:03:15,951
+reproducible experiments, specialist adaptation,
+
+49
+00:03:16,021 --> 00:03:18,933
+transparent routing, and auditable results.
+
+50
+00:03:19,063 --> 00:03:22,567
+For me, the key achievement is connecting model development
+
+51
+00:03:22,637 --> 00:03:26,015
+with rigorous evaluation and a usable product.

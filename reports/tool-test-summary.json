@@ -1,0 +1,29 @@
+{
+  "split": "test",
+  "examples": 961,
+  "rank": 8,
+  "data_sha256": "152ae923549367532a34a294fca41a592f63e989f6de915e8ae6ea48fa7bf517",
+  "metrics": {
+    "examples": 961,
+    "valid_tool_call_rate": 1.0,
+    "tool_selection_accuracy": 0.9989594172736732,
+    "full_call_exact_match_rate": 0.9292403746097815,
+    "argument_accuracy_when_tools_correct": 0.9302083333333333,
+    "median_latency_seconds": 6.186149500004831,
+    "generation_tokens_per_second": 9.873405556263238,
+    "token_limit_hit_rate": 0.0,
+    "mock_execution_success_rate": 1.0
+  },
+  "peak_allocated_vram_gib": 6.20582914352417,
+  "base_metrics": {
+    "examples": 961,
+    "valid_tool_call_rate": 0.014568158168574402,
+    "tool_selection_accuracy": 0.006243496357960458,
+    "full_call_exact_match_rate": 0.006243496357960458,
+    "argument_accuracy_when_tools_correct": 1.0,
+    "median_latency_seconds": 18.355797700001858,
+    "generation_tokens_per_second": 14.3645517109731,
+    "token_limit_hit_rate": 1.0
+  },
+  "base_predictions_reused_from": "outputs\\qwen3-8b-base-tool-lora-r16-head-repair-joint\\evaluation\\benchmark-961-seed42-tokens256-predictions.jsonl"
+}

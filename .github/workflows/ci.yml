@@ -1,0 +1,29 @@
+name: CPU checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  public-bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Verify public snapshot and report viewer
+        run: python tools/verify_public.py
+      - name: Install CPU test dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Scoring, mock contracts and checkpoint recovery
+        run: |
+          python -m unittest discover -s evaluation -p test_scoring.py
+          python -m unittest discover -s evaluation -p test_mock_tools.py
+          python -m unittest discover -s evaluation -p test_checkpoint.py

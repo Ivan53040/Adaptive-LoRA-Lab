@@ -1,0 +1,12 @@
+{
+  "source_adapter": "outputs/rank-ablation-1k/r16",
+  "output_dir": "outputs/protocol-repair/r16-joint-completion",
+  "train_rows": 256,
+  "max_steps": 60,
+  "gradient_accumulation_steps": 2,
+  "head_lr": 0.001,
+  "transformer_lr": 0.0001,
+  "max_length": 2048,
+  "seed": 42,
+  "generation_check_every": 20
+}

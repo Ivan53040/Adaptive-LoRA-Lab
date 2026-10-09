@@ -1,0 +1,27 @@
+{
+  "model_id": "models/Qwen3-8B-Base",
+  "base_model_id": "Qwen/Qwen3-8B-Base",
+  "data_source": "outputs/rank-ablation-1k/r8",
+  "output_dir": "outputs/gpu-remaining-20261007/tool-seed44-r8",
+  "dataset_id": "google/mobile-actions",
+  "max_length": 2048,
+  "epochs": 2,
+  "max_steps": 1000,
+  "gradient_accumulation_steps": 2,
+  "head_lr": 0.001,
+  "transformer_lr": 0.0001,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj",
+    "lm_head"
+  ],
+  "seed": 44
+}

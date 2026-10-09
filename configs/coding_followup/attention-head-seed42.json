@@ -1,0 +1,27 @@
+{
+  "model_id": "models/Qwen3-8B-Base",
+  "base_model_id": "Qwen/Qwen3-8B-Base",
+  "output_dir": "outputs/coding-followup/attention-head-seed42",
+  "tool_adapter": "outputs/data-size-r8/3k",
+  "data_dir": "data/processed/coding-mbpp-pilot",
+  "dataset_path": "data/raw/coding/sources.json",
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "lm_head"
+  ],
+  "epochs": 2,
+  "gradient_accumulation_steps": 2,
+  "transformer_lr": 0.0001,
+  "head_lr": 0.0001,
+  "max_length": 2048,
+  "max_new_tokens": 512,
+  "seed": 42,
+  "eos_token": "<|endoftext|>",
+  "docker_image": "sha256:dddfd7e07f9d15aeeca61529320492139d21cac7f0070c00609243e51e4e0016"
+}

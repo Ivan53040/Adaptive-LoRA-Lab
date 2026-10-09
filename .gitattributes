@@ -1,0 +1,18 @@
+* text=auto eol=lf
+
+# Research protocols record byte-level source fingerprints.
+# Preserve the original bytes instead of rewriting line endings on checkout.
+coding/** -text
+configs/** -text
+data/evaluation/** -text
+demo/** -text
+evaluation/** -text
+experiments/** -text
+runtime/** -text
+training/** -text
+reports/** -text
+media/** -text
+
+*.mp4 binary
+*.png binary
+*.jpg binary

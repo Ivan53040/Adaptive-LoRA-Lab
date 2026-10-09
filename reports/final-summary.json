@@ -1,0 +1,178 @@
+{
+  "completed": true,
+  "sources_and_configs_verified": true,
+  "known_humaneval": [
+    {
+      "condition": "base",
+      "variant": "base",
+      "split": "test",
+      "examples": 164,
+      "rows_sha256": "2759c4482a91f8102017f6944a0ec1ba59f866242d0ca46536590fc1a134702f",
+      "passed": 98,
+      "pass_at_1": 0.5975609756097561,
+      "syntax_valid_rate": 0.9451219512195121,
+      "token_limit_hit_rate": 0.03048780487804878,
+      "median_latency_seconds": 2.2659999999959837,
+      "peak_allocated_vram_gib": 5.8614630699157715,
+      "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+      "benchmark_scope": "untouched HumanEval164"
+    },
+    {
+      "condition": "pilot",
+      "variant": "coding",
+      "split": "test",
+      "examples": 164,
+      "rows_sha256": "2759c4482a91f8102017f6944a0ec1ba59f866242d0ca46536590fc1a134702f",
+      "passed": 97,
+      "pass_at_1": 0.5914634146341463,
+      "syntax_valid_rate": 0.9634146341463414,
+      "token_limit_hit_rate": 0.018292682926829267,
+      "median_latency_seconds": 3.6555000000007567,
+      "peak_allocated_vram_gib": 5.94735860824585,
+      "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+      "benchmark_scope": "untouched HumanEval164"
+    },
+    {
+      "condition": "expanded",
+      "variant": "coding",
+      "split": "test",
+      "examples": 164,
+      "rows_sha256": "2759c4482a91f8102017f6944a0ec1ba59f866242d0ca46536590fc1a134702f",
+      "passed": 111,
+      "pass_at_1": 0.676829268292683,
+      "syntax_valid_rate": 0.9939024390243902,
+      "token_limit_hit_rate": 0.0,
+      "median_latency_seconds": 3.507500000006985,
+      "peak_allocated_vram_gib": 5.94735860824585,
+      "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+      "benchmark_scope": "untouched HumanEval164"
+    }
+  ],
+  "humaneval_net_tasks_vs_base": 13,
+  "coding_seeds": [
+    {
+      "seed": 42,
+      "updates": 3000,
+      "validation_passed": 17,
+      "test_passed": 249,
+      "test_rate": 0.535483870967742
+    },
+    {
+      "seed": 43,
+      "updates": 3000,
+      "validation_passed": 21,
+      "test_passed": 252,
+      "test_rate": 0.5419354838709678
+    },
+    {
+      "seed": 44,
+      "updates": 3000,
+      "validation_passed": 17,
+      "test_passed": 247,
+      "test_rate": 0.5311827956989247
+    }
+  ],
+  "coding_test_rate_summary": {
+    "mean": 0.5362007168458781,
+    "minimum": 0.5311827956989247,
+    "maximum": 0.5419354838709678,
+    "conditions": 3
+  },
+  "tool_conditions": [
+    {
+      "seed": 42,
+      "rank": 8,
+      "updates": 1000,
+      "exact": 90,
+      "mock": 100,
+      "peak_training_gib": 11.801278114318848
+    },
+    {
+      "seed": 42,
+      "rank": 16,
+      "updates": 1000,
+      "exact": 89,
+      "mock": 100,
+      "peak_training_gib": 12.146652698516846
+    },
+    {
+      "seed": 42,
+      "rank": 32,
+      "updates": 1000,
+      "exact": 89,
+      "mock": 100,
+      "peak_training_gib": 12.864206314086914
+    },
+    {
+      "seed": 43,
+      "rank": 8,
+      "updates": 1000,
+      "exact": 88,
+      "mock": 100,
+      "peak_training_gib": 11.800731658935547
+    },
+    {
+      "seed": 43,
+      "rank": 16,
+      "updates": 1000,
+      "exact": 86,
+      "mock": 99,
+      "peak_training_gib": 12.147522449493408
+    },
+    {
+      "seed": 43,
+      "rank": 32,
+      "updates": 1000,
+      "exact": 82,
+      "mock": 100,
+      "peak_training_gib": 12.859785556793213
+    },
+    {
+      "seed": 44,
+      "rank": 8,
+      "updates": 1000,
+      "exact": 90,
+      "mock": 100,
+      "peak_training_gib": 11.80165958404541
+    },
+    {
+      "seed": 44,
+      "rank": 16,
+      "updates": 1000,
+      "exact": 90,
+      "mock": 100,
+      "peak_training_gib": 12.14606237411499
+    },
+    {
+      "seed": 44,
+      "rank": 32,
+      "updates": 1000,
+      "exact": 79,
+      "mock": 97,
+      "peak_training_gib": 12.855110168457031
+    }
+  ],
+  "tool_rank_summary": {
+    "8": {
+      "mean": 89.33333333333333,
+      "minimum": 88,
+      "maximum": 90,
+      "conditions": 3
+    },
+    "16": {
+      "mean": 88.33333333333333,
+      "minimum": 86,
+      "maximum": 90,
+      "conditions": 3
+    },
+    "32": {
+      "mean": 83.33333333333333,
+      "minimum": 79,
+      "maximum": 89,
+      "conditions": 3
+    }
+  },
+  "remaining_study_coding_replay_records": 1158,
+  "tool_validation_cases_independently_rescored": 900,
+  "limits": "Known HumanEval descriptive comparison; eligible MBPP465 subset; Tool rank evidence is validation-only on100cases. Same cases repeated across seeds are not independent new datasets. No test-based tuning or automatic promotion."
+}

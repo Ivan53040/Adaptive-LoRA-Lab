@@ -1,0 +1,218 @@
+{
+  "status": "paused",
+  "error": null,
+  "adapter": "3k",
+  "adapter_rank": 8,
+  "training_rows": 3000,
+  "adapter_path": "outputs\\data-size-r8\\3k",
+  "model": "Qwen3-8B-Base",
+  "review_count": 68,
+  "shared_base_load_count": 0,
+  "active_adapter": null,
+  "inference_parameters_frozen": null,
+  "now": "2026-10-09T12:00:00",
+  "worlds": {
+    "base": {
+      "flashlight_on": false,
+      "wifi_settings_open": false,
+      "events": [],
+      "contacts": [],
+      "outbox": [],
+      "map_queries": []
+    },
+    "lora": {
+      "flashlight_on": false,
+      "wifi_settings_open": false,
+      "events": [],
+      "contacts": [],
+      "outbox": [],
+      "map_queries": []
+    }
+  },
+  "benchmark": {
+    "base": {
+      "examples": 961,
+      "valid_tool_call_rate": 0.014568158168574402,
+      "tool_selection_accuracy": 0.006243496357960458,
+      "full_call_exact_match_rate": 0.006243496357960458,
+      "argument_accuracy_when_tools_correct": 1.0,
+      "median_latency_seconds": 18.355797700001858,
+      "generation_tokens_per_second": 14.3645517109731,
+      "token_limit_hit_rate": 1.0
+    },
+    "lora": {
+      "examples": 961,
+      "valid_tool_call_rate": 1.0,
+      "tool_selection_accuracy": 0.9989594172736732,
+      "full_call_exact_match_rate": 0.9292403746097815,
+      "argument_accuracy_when_tools_correct": 0.9302083333333333,
+      "median_latency_seconds": 6.186149500004831,
+      "generation_tokens_per_second": 9.873405556263238,
+      "token_limit_hit_rate": 0.0,
+      "mock_execution_success_rate": 1.0
+    }
+  },
+  "mock_summary": {
+    "lora": {
+      "examples": 961,
+      "strict_mock_execution_success": 961
+    }
+  },
+  "history": [],
+  "coding": {
+    "ready": false,
+    "error": null,
+    "adapter_path": "outputs\\coding-mbpp-r8-fp32",
+    "experimental": true,
+    "metrics": {
+      "base": {
+        "variant": "base",
+        "split": "test",
+        "examples": 164,
+        "rows_sha256": "2759c4482a91f8102017f6944a0ec1ba59f866242d0ca46536590fc1a134702f",
+        "passed": 98,
+        "pass_at_1": 0.5975609756097561,
+        "syntax_valid_rate": 0.9451219512195121,
+        "token_limit_hit_rate": 0.03048780487804878,
+        "median_latency_seconds": 2.2659999999959837,
+        "peak_allocated_vram_gib": 5.8614630699157715,
+        "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+        "benchmark_scope": "untouched HumanEval164"
+      },
+      "tool": {
+        "variant": "tool",
+        "split": "test",
+        "examples": 164,
+        "rows_sha256": "2759c4482a91f8102017f6944a0ec1ba59f866242d0ca46536590fc1a134702f",
+        "passed": 89,
+        "pass_at_1": 0.5426829268292683,
+        "syntax_valid_rate": 0.8841463414634146,
+        "token_limit_hit_rate": 0.12804878048780488,
+        "median_latency_seconds": 5.219000000004598,
+        "peak_allocated_vram_gib": 5.94735860824585,
+        "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+        "benchmark_scope": "untouched HumanEval164"
+      },
+      "coding": {
+        "variant": "coding",
+        "split": "test",
+        "examples": 164,
+        "rows_sha256": "2759c4482a91f8102017f6944a0ec1ba59f866242d0ca46536590fc1a134702f",
+        "passed": 97,
+        "pass_at_1": 0.5914634146341463,
+        "syntax_valid_rate": 0.9634146341463414,
+        "token_limit_hit_rate": 0.018292682926829267,
+        "median_latency_seconds": 3.6555000000007567,
+        "peak_allocated_vram_gib": 5.94735860824585,
+        "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+        "benchmark_scope": "untouched HumanEval164"
+      }
+    },
+    "review_count": 67,
+    "history": [],
+    "expanded": {
+      "ready": false,
+      "error": null,
+      "adapter_path": "outputs\\coding-expansion-3k\\r8",
+      "experimental": true,
+      "metrics": {
+        "base": {
+          "validation": {
+            "variant": "base",
+            "split": "validation",
+            "examples": 32,
+            "rows_sha256": "9c969cd9387acefec5b75badad00ccfc0809fec6124bece31484c4ab1f095c3d",
+            "passed": 17,
+            "pass_at_1": 0.53125,
+            "syntax_valid_rate": 0.90625,
+            "token_limit_hit_rate": 0.03125,
+            "median_latency_seconds": 2.5939999999827705,
+            "peak_allocated_vram_gib": 5.828553199768066,
+            "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+            "benchmark_scope": "unchanged eligible MBPP32 validation subset"
+          },
+          "test": {
+            "variant": "base",
+            "split": "test",
+            "examples": 465,
+            "rows_sha256": "3eec1a4d0c69d20569297e022e9b48d52ae9fc019c7e14bd269f3b0c4d8dea7a",
+            "passed": 224,
+            "pass_at_1": 0.4817204301075269,
+            "syntax_valid_rate": 0.8731182795698925,
+            "token_limit_hit_rate": 0.04516129032258064,
+            "median_latency_seconds": 2.01500000001397,
+            "peak_allocated_vram_gib": 5.828557014465332,
+            "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+            "benchmark_scope": "eligible MBPP465 held-out subset"
+          }
+        },
+        "pilot": {
+          "validation": {
+            "variant": "coding",
+            "split": "validation",
+            "examples": 32,
+            "rows_sha256": "9c969cd9387acefec5b75badad00ccfc0809fec6124bece31484c4ab1f095c3d",
+            "passed": 19,
+            "pass_at_1": 0.59375,
+            "syntax_valid_rate": 1.0,
+            "token_limit_hit_rate": 0.0,
+            "median_latency_seconds": 4.8125,
+            "peak_allocated_vram_gib": 5.872580528259277,
+            "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+            "benchmark_scope": "unchanged eligible MBPP32 validation subset"
+          },
+          "test": {
+            "variant": "coding",
+            "split": "test",
+            "examples": 465,
+            "rows_sha256": "3eec1a4d0c69d20569297e022e9b48d52ae9fc019c7e14bd269f3b0c4d8dea7a",
+            "passed": 241,
+            "pass_at_1": 0.5182795698924731,
+            "syntax_valid_rate": 0.989247311827957,
+            "token_limit_hit_rate": 0.008602150537634409,
+            "median_latency_seconds": 3.8589999999967404,
+            "peak_allocated_vram_gib": 5.908923149108887,
+            "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+            "benchmark_scope": "eligible MBPP465 held-out subset"
+          }
+        },
+        "expanded": {
+          "validation": {
+            "variant": "coding",
+            "split": "validation",
+            "examples": 32,
+            "rows_sha256": "9c969cd9387acefec5b75badad00ccfc0809fec6124bece31484c4ab1f095c3d",
+            "passed": 17,
+            "pass_at_1": 0.53125,
+            "syntax_valid_rate": 1.0,
+            "token_limit_hit_rate": 0.0,
+            "median_latency_seconds": 3.132999999987078,
+            "peak_allocated_vram_gib": 5.872580528259277,
+            "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+            "benchmark_scope": "unchanged eligible MBPP32 validation subset"
+          },
+          "test": {
+            "variant": "coding",
+            "split": "test",
+            "examples": 465,
+            "rows_sha256": "3eec1a4d0c69d20569297e022e9b48d52ae9fc019c7e14bd269f3b0c4d8dea7a",
+            "passed": 249,
+            "pass_at_1": 0.535483870967742,
+            "syntax_valid_rate": 0.9913978494623656,
+            "token_limit_hit_rate": 0.002150537634408602,
+            "median_latency_seconds": 3.1089999999967404,
+            "peak_allocated_vram_gib": 5.908923149108887,
+            "generation": "one greedy candidate per frozen task; raw function completion,512-token budget, stop at next top-level definition/comment",
+            "benchmark_scope": "eligible MBPP465 held-out subset"
+          }
+        }
+      }
+    }
+  },
+  "router": {
+    "version": "rules-v1",
+    "coding_default": "base",
+    "coding_opt_in": true,
+    "runtime_profile": "expanded-choice-v1"
+  }
+}

@@ -1,7 +1,3 @@
-
-
-https://github.com/user-attachments/assets/a56c3af9-31eb-4b21-a07d-f3abdbc44f0b
-
 <div align="center">
 
 # Adaptive LoRA Lab
@@ -56,13 +52,13 @@ trained on a single laptop GPU around one frozen **Qwen3-8B-Base**.
 
 ## 🎬 Watch the 3-minute film
 
-<div align="center">
+https://github.com/user-attachments/assets/a56c3af9-31eb-4b21-a07d-f3abdbc44f0b
 
-[![Adaptive LoRA Lab: preview of the project film with English captions. Click to watch with sound.](media/film-preview.gif)](media/adaptive-lora-lab-star-en-male.mp4)
+<div align="center">
 
 🔊 **English narration** &nbsp;·&nbsp; 💬 **English captions** &nbsp;·&nbsp; 🎵 **Original music** &nbsp;·&nbsp; ⏱️ **3:28** &nbsp;·&nbsp; 🖥️ **1080p**
 
-**[▶ Play the full film with sound](media/adaptive-lora-lab-star-en-male.mp4)** ·
+**[▶ Full-quality MP4](media/adaptive-lora-lab-star-en-male.mp4)** ·
 [Download MP4](https://github.com/Ivan53040/Adaptive-LoRA-Lab/raw/refs/heads/main/media/adaptive-lora-lab-star-en-male.mp4) ·
 [Subtitles (SRT)](media/adaptive-lora-lab-en.srt) ·
 [Transcript](media/narration-en.txt) ·
@@ -75,9 +71,10 @@ trained on a single laptop GPU around one frozen **Qwen3-8B-Base**.
 The film walks through the whole project in the **Situation → Task → Action → Result**
 format: why fluent text isn't enough, how the adapters were trained, the failed
 experiment that fixed the training protocol, and what the measurements show.
-It is narrated in English, with English captions burned into the picture so they
-show on every player; a separate [SRT subtitle file](media/adaptive-lora-lab-en.srt)
-is included for players that load captions on their own.
+Press play above to watch it right here. It is narrated in English, with English
+captions burned into the picture so they show on every player; a separate
+[SRT subtitle file](media/adaptive-lora-lab-en.srt) is included for players that
+load captions on their own.
 
 ## 💡 The question
 

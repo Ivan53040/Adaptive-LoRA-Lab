@@ -4,6 +4,10 @@
 
 [English README](../README.md) · [男聲介紹影片](../media/adaptive-lora-lab-star-en-male.mp4)
 
+[![介紹影片預覽，點擊觀看](../media/film-preview.gif)](../media/adaptive-lora-lab-star-en-male.mp4)
+
+**[▶ 觀看 3 分 28 秒介紹影片](../media/adaptive-lora-lab-star-en-male.mp4)**（英文旁白與字幕）
+
 這是已完成的本機研究與作品集專案，探索如何在凍結的 Qwen3-8B-Base 上，
 透過 Tool-use 和 Coding LoRA 改善特定任務，再以透明的規則路由整合。
 
